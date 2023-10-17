@@ -15,20 +15,25 @@ public class Library {
 
     public void addBook(Book book) {
         books.add(book);
+        bookMap.put(book.getId(), book);
     }
 
     public void removeBook(Book book) {
         books.remove(book);
+        bookMap.remove(book.getId());
+        favoriteBooks.remove(book);
     }
 
     public Book searchBook(int bookId) {
-        for(Book book: books) {
-            if(book.getId() == bookId) {
-                return book;
-            }
-        }
-        System.out.println("This book does not exist in this library.");
-        return null;
+        // old code
+//        for(Book book: books) {
+//            if(book.getId() == bookId) {
+//                return book;
+//            }
+//        }
+//        System.out.println("This book does not exist in this library.");
+//        return null;
+        return bookMap.get(bookId);
     }
 
     public void updateBook(Book oldBook, Book newBook) {
@@ -40,22 +45,22 @@ public class Library {
     }
 
     public List<Book> searchBookByAuthor(String author) {
+        System.out.println("Search results by author: ");
         List<Book> searchResults = new ArrayList<>();
         for(Book book: books) {
             if(book.getAuthor().equalsIgnoreCase(author)) {
                 searchResults.add(book);
-                System.out.println("search results: " + searchResults);
             }
         }
         return searchResults;
     }
 
     public List<Book> searchBookByTitle(String title) {
+        System.out.println("Search results by title: ");
         List<Book> searchResults = new ArrayList<>();
         for(Book book: books) {
             if(book.getTitle().equalsIgnoreCase(title)) {
                 searchResults.add(book);
-                System.out.println(searchResults);
             }
         }
         return searchResults;
@@ -63,7 +68,7 @@ public class Library {
 
     public void displayBooks() {
        for(Book book: books) {
-           System.out.println("- Title: " + book.getTitle() + " Author: " + book.getAuthor());
+           System.out.println(book);
        }
     }
 
@@ -78,8 +83,9 @@ public class Library {
 
 
     public void displayFavorites() {
+        System.out.println("Favourite Books: ");
         for(Book book: favoriteBooks) {
-            System.out.println("- Title: " + book.getTitle() + " Author: " + book.getAuthor());
+            System.out.println(book);
         }
     }
 
