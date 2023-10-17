@@ -6,7 +6,7 @@ public class Inventory {
     private List<Member> memberList = new ArrayList<>();
     private List<Book> library = new ArrayList<>();
     @IsAvailable
-    public boolean isAvailable(String bookId) {
+    public boolean isAvailable(int bookId) {
         for (Book book : library) {
             if (book.getId() == bookId) {
                 return true;

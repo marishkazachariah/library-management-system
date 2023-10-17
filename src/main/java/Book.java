@@ -1,25 +1,25 @@
 import java.lang.reflect.Field;
 
 public class Book {
-    private String id;
+    private int id;
     @ISBN
     private String isbn;
     @BookInfo
     private String title;
     private String author;
 
-    public Book(String id, String title, String isbn, String author) {
+    public Book(int id, String title, String isbn, String author) {
         this.id = id;
         this.title = title;
         this.isbn = isbn;
         this.author = author;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
