@@ -68,5 +68,10 @@ public class Application {
 
         library.searchBookByTitle("The Great Gatsby");
         library.searchBookByAuthor("Harper Lee");
+
+        // Day 3 - Streams
+        System.out.println(library.searchBookByAuthorStreams("Harper Lee"));
+        System.out.println(library.searchBookByTitleStreams("The Great Gatsby"));
+        System.out.println(library.sortMembersByName());
     }
 }

@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Library {
     private List<Book> books;
@@ -120,4 +122,24 @@ public class Library {
             System.out.println("- ID: " + member.getId() + " Name: " + member.getName());
         }
     }
+
+    // Day 3 - Streams
+    public List<Book> searchBookByAuthorStreams(String author) {
+        System.out.println("Search results by author: ");
+        return books.stream().filter(book -> book.getAuthor().equalsIgnoreCase(author))
+                .collect(Collectors.toList());
+    }
+
+    public List<Book> searchBookByTitleStreams(String title) {
+        System.out.println("Search results by title: ");
+        return books.stream().filter(book -> book.getTitle().equalsIgnoreCase(title))
+                .collect(Collectors.toList());
+    }
+
+    public List<Member> sortMembersByName() {
+       return members.stream()
+               .sorted(Comparator.comparing(Member::getName))
+               .collect(Collectors.toList());
+    }
+
 }
